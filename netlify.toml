@@ -1,6 +1,24 @@
+# Netlify build settings
 [build]
   publish = "public"
   command = "hugo"
 
+# Set environment variables for the production build
 [context.production.environment]
-  HUGO_VERSION = "0.121.1"
+  HUGO_VERSION = "0.125.4"  # Use any stable Hugo version
+  HUGO_ENV = "production"
+
+# Optional: Custom deploy preview settings
+[context.deploy-preview.environment]
+  HUGO_VERSION = "0.125.4"
+  HUGO_ENV = "development"
+
+# Optional: Set up branch-specific deploys
+[context.branch-deploy.environment]
+  HUGO_VERSION = "0.125.4"
+
+# Redirects (optional: helpful if you use clean URLs or custom routing)
+[[redirects]]
+  from = "/admin"
+  to = "/admin/index.html"
+  status = 200
