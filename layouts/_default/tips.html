@@ -1,0 +1,9 @@
+{{ $tips := slice
+  "Stay creative!"
+  "Read daily to stay informed."
+  "Post what you care about."
+  "Write for people, not robots."
+  "Organize your blog by topic."
+}}
+
+<p>{{ index $tips (mod (now.Unix) (len $tips)) }}</p>
