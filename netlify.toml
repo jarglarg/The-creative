@@ -1,23 +1,38 @@
-# Netlify build settings
+# ==========================
+# Netlify Build Configuration
+# ==========================
+
 [build]
+  # Folder where Hugo will output your final site
   publish = "public"
-  command = "hugo"
 
-# Set environment variables for the production build
+  # Command Netlify runs to build your Hugo site
+  command = "hugo --verbose"
+
+# ==========================
+# Environment variables for production
+# ==========================
 [context.production.environment]
-  HUGO_VERSION = "0.125.4"  # Use any stable Hugo version
+  HUGO_VERSION = "0.125.4"      # or the latest stable version
   HUGO_ENV = "production"
+  HUGO_ENABLEGITINFO = "true"
 
-# Optional: Custom deploy preview settings
+# ==========================
+# Deploy preview environment (for PRs, previews)
+# ==========================
 [context.deploy-preview.environment]
   HUGO_VERSION = "0.125.4"
   HUGO_ENV = "development"
 
-# Optional: Set up branch-specific deploys
+# ==========================
+# Branch deploy environment (e.g. feature branches)
+# ==========================
 [context.branch-deploy.environment]
   HUGO_VERSION = "0.125.4"
 
-# Redirects (optional: helpful if you use clean URLs or custom routing)
+# ==========================
+# Redirects (used for Netlify CMS admin panel)
+# ==========================
 [[redirects]]
   from = "/admin"
   to = "/admin/index.html"
