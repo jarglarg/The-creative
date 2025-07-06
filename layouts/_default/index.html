@@ -1,0 +1,33 @@
+{{ define "main" }}
+
+<section class="hero">
+  <h1>Free content to inspire you</h1>
+  <p>Discover News, Science, Health, Technology, Motivation, and more</p>
+  <input type="text" id="searchBox" placeholder="Search for posts...">
+</section>
+
+<section class="discover">
+  <h2>Explore Categories</h2>
+  <div class="scrolling-categories">
+    {{ range $name, $taxonomy := .Site.Taxonomies.categories }}
+      <a href="/categories/{{ $name | urlize }}" class="category-chip">{{ $name }}</a>
+    {{ end }}
+  </div>
+</section>
+
+<section class="tips">
+  <h2>Tip of the Moment</h2>
+  {{ partial "tips.html" . }}
+</section>
+
+<section class="featured-posts">
+  <h2>Latest Posts</h2>
+  {{ range first 6 .Site.RegularPages }}
+    <div class="post">
+      <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+      <p>{{ .Summary }}</p>
+    </div>
+  {{ end }}
+</section>
+
+{{ end }}
