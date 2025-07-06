@@ -1,8 +1,0 @@
-baseURL = "https://your-site.netlify.app/"  # Replace with your actual site URL
-languageCode = "en-us"
-title = "The Creative"
-theme = ""
-paginate = 6
-
-[taxonomies]
-  category = "categories"
