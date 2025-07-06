@@ -1,18 +1,46 @@
-backend:
-  name: git-gateway
-  branch: main
+baseURL: "https://the-creative-blog.netlify.app/"
+title: "The Creative"
+theme: "ananke"  # <-- Change this to your actual theme folder name
+languageCode: "en-us"
+defaultContentLanguage: "en"
+enableRobotsTXT: true
+paginate: 10
+summaryLength: 70
+googleAnalytics: ""
 
-media_folder: "images"
-public_folder: "/images"
+# Menu navigation
+menu:
+  main:
+    - name: Home
+      url: "/"
+      weight: 1
+    - name: Discover
+      url: "/discover/"
+      weight: 2
+    - name: Tips
+      url: "/tips/"
+      weight: 3
+    - name: Categories
+      url: "/categories/"
+      weight: 4
+    - name: About
+      url: "/about/"
+      weight: 5
 
-collections:
-  - name: "posts"
-    label: "Posts"
-    folder: "posts"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Date", name: "date", widget: "datetime" }
-      - { label: "Category", name: "category", widget: "select", options: ["News", "Science", "Tips", "Motivation", "Earn"] }
-      - { label: "Body", name: "body", widget: "markdown" }
+# Params used by themes (like Ananke or others)
+params:
+  description: "Free content to inspire you – Discover News, Science, Motivation and more."
+  author: "Admin"
+  showReadMore: true
+  showRelatedPosts: true
+  mainSections: ["posts"]
+  favicon: "images/favicon.png"
+  custom_css: ["css/custom.css"]
+  dateFormat: "Jan 2, 2006"
+
+# Taxonomies for organizing content
+taxonomies:
+  category: "categories"
+  tag: "tags"
+  author: "authors"
+  location: "locations"
